@@ -27,9 +27,11 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
         
     # YOUR CODE HERE!
     counter = 0
+    assert not dateIsBefore(year2, month2, day2, year1, month1, day1)
     while dateIsBefore(year1, month1, day1, year2, month2, day2):
         year1, month1, day1 = nextDay(year1, month1, day1)
         counter += 1
     return counter
 
 print daysBetweenDates(1973, 5, 22, 2013, 7, 23)
+print daysBetweenDates(2014, 7, 23, 2013, 7, 23)
