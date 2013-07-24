@@ -1,6 +1,26 @@
+def isLeapYear(year):
+    if year % 400 == 0:
+        return True
+    if year % 100 == 0:
+        return False
+    if year % 4 == 0:
+        return True
+    return False
+
+def daysInMonth(year, month):
+    if month == 1 or month == 3 or month == 5 or month == 7 or \
+      month == 8 or month == 10 or month == 12:
+        return 31
+    if month == 2:
+        if isLeapYear(year):
+            return 29
+        else:
+            return 28
+    return 30
+
 def nextDay(year, month, day):
     """Simple version: assume every month has 30 days"""
-    if day < 30:
+    if day < daysInMonth(year, month):
         return year, month, day + 1
     else:
         if month == 12:
@@ -33,5 +53,12 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
         counter += 1
     return counter
 
-print daysBetweenDates(1973, 5, 22, 2013, 7, 23)
-print daysBetweenDates(2014, 7, 23, 2013, 7, 23)
+def test():
+    assert daysBetweenDates(2013,7,23,2013,7,24) == 1
+    assert daysBetweenDates(2012,1,1,2013,1,1) == 366
+    print "Testing is finished."
+
+test()
+
+#print daysBetweenDates(1973, 5, 22, 2013, 7, 23)
+#print daysBetweenDates(2014, 7, 23, 2013, 7, 23)
