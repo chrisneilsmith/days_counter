@@ -47,7 +47,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
         
     # YOUR CODE HERE!
     counter = 0
-    assert not dateIsBefore(year2, month2, day2, year1, month1, day1)
+    assert dateIsBefore(year1, month1, day1, year2, month2, day2)
     while dateIsBefore(year1, month1, day1, year2, month2, day2):
         year1, month1, day1 = nextDay(year1, month1, day1)
         counter += 1
@@ -56,9 +56,19 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
 def test():
     assert daysBetweenDates(2013,7,23,2013,7,24) == 1
     assert daysBetweenDates(2012,1,1,2013,1,1) == 366
+    #assert daysBetweenDates(2000,1,2,2000,1,1) == AssertionError
     print "Testing is finished."
 
 test()
 
 #print daysBetweenDates(1973, 5, 22, 2013, 7, 23)
 #print daysBetweenDates(2014, 7, 23, 2013, 7, 23)
+print "Nancy: "
+print daysBetweenDates(1973, 10, 4, 2013, 12, 9)
+print "Emma: "
+print daysBetweenDates(2007,12,31, 2013, 12, 9)
+print "Nora: "
+print daysBetweenDates(2006,4,28,2013,12,9)
+print "Chris: "
+print daysBetweenDates(1973, 5, 22, 2013, 9, 12)
+
